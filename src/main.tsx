@@ -15,6 +15,8 @@ import { SidebarProvider } from './components/ui/sidebar';
 import DakkapelCalculatorConceptPage from './pages/DakkapelCalculatorConceptPage.tsx';
 import DakkapelCalculatorPage from './pages/DakkapelCalculatorPage.tsx';
 import BouwhulpPage from './pages/BouwhulpPage.tsx';
+import AIAssistant from './pages/AIAssistant.tsx';
+import AIDashboard from './pages/Dashboard.tsx'
 
 // TypeScript interface for window
 declare global {
@@ -39,7 +41,7 @@ window.dataLayer.push({
 const renderBasedOnDomain = () => {
   const hostname = window.location.hostname;
   console.log('Current hostname:', hostname);
-  
+
   // Check for dakkapel domain
   if (hostname === 'refurbishdakkapel.nl' || hostname === 'www.refurbishdakkapel.nl') {
     console.log('Rendering DakkapelLandingPage');
@@ -57,13 +59,14 @@ const renderBasedOnDomain = () => {
             } />
             <Route path="/dakkapel-calculator" element={<DakkapelCalculatorConceptPage />} />
             <Route path="/dakkapel-calculator-concept" element={<DakkapelCalculatorPage />} />
+
             <Route path="/offerte" element={<OffertePage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </SidebarProvider>
       </BrowserRouter>
     );
-  } 
+  }
   // Check for zonnepanelen domain
   else if (hostname === 'refurbishzonnepanelen.nl' || hostname === 'www.refurbishzonnepanelen.nl') {
     console.log('Rendering ZonnepanelenPage with product routes');
@@ -144,6 +147,13 @@ const renderBasedOnDomain = () => {
             <Route path="/*" element={<App />} />
             <Route path="/refurbishdakkapel" element={<DakkapelLandingPage />} />
             <Route path="/refurbishzonnepanelen" element={<ZonnepanelenPage />} />
+            <Route path="/ai-assistant-registration" element={<AIAssistant />} />
+            {/* <Route path="/dashboard" element={<AIDashboard session={session} />} /> */}
+            <Route path="/ai-assistant" element={<AIDashboard />} />
+
+
+
+
             <Route path="/refurbishbouwhulp" element={<BouwhulpPage />} />
             <Route path="/isolatie-selectie" element={<IsolatieSelectiePage />} />
             <Route path="/product/:productId" element={<SolarProductDetailPage />} />

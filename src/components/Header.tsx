@@ -36,7 +36,12 @@ const dienstenItems = [{
 }, {
   title: 'PVC Vloeren',
   path: '/diensten/pvc-vloeren'
-}];
+  
+},
+{
+  title: 'AI assistant',
+  path: '/ai-assistant'
+},];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -157,6 +162,7 @@ const Header = () => {
             <Link to="/contact" className={cn("font-medium transition-colors hover-underline", isActive('/contact') ? "text-brand-lightGreen" : "hover:text-brand-lightGreen")}>
               Contact
             </Link>
+            
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild className="bg-brand-lightGreen hover:bg-opacity-90">
                 <Link to="/offerte">Offerte Aanvragen</Link>
